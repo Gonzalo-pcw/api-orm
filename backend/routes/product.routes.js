@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+const products = require("../controllers/product.controller");
+router.post("/", products.create);
+router.get("/", products.findAll);
+router.get("/:id", products.findOne);
+router.put("/:id", products.update);
+router.delete("/:id", products.delete);
+router.get("/search/:term", products.searchByName);
+router.get("/low-stock/:threshold", products.lowStock);
+module.exports = router;
